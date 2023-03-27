@@ -1,0 +1,1893 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/20/2021 10:32:45 PM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="PC803"
+  DTS:CreatorName="ELIFE\Subarkah"
+  DTS:DTSID="{56545B6A-2ACA-4C47-A1AB-F4BFE90EDE2D}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="16.0.5035.3"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="RAW_INITIAL_DBCIF_cust_general"
+  DTS:PackageType="5"
+  DTS:VersionBuild="443"
+  DTS:VersionGUID="{3B989D86-F7D2-45CF-A36A-F0B4EC3A96BC}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:Configurations>
+    <DTS:Configuration
+      DTS:ConfigurationString="&quot;OLE_DB_WAREHOUSE_ETL&quot;;&quot;[dbo].[SSIS_CONFIG]&quot;;&quot;ADO_NET_DIGITAL_GRP&quot;;"
+      DTS:ConfigurationType="7"
+      DTS:CreationName=""
+      DTS:DTSID="{1E0FF90D-5A93-4C8F-BB1A-48E726B50405}"
+      DTS:ObjectName="ADO_NET_DIGITAL_GRP" />
+    <DTS:Configuration
+      DTS:ConfigurationString="&quot;OLE_DB_WAREHOUSE_ETL&quot;;&quot;[dbo].[SSIS_CONFIG]&quot;;&quot;ADO_NET_WAREHOUSE_STAGING&quot;;"
+      DTS:ConfigurationType="7"
+      DTS:CreationName=""
+      DTS:DTSID="{378AD2B4-6F6B-4B71-A2E9-059A452312B5}"
+      DTS:ObjectName="ADO_NET_WAREHOUSE_STAGING" />
+    <DTS:Configuration
+      DTS:ConfigurationString="&quot;OLE_DB_WAREHOUSE_ETL&quot;;&quot;[dbo].[SSIS_CONFIG]&quot;;&quot;OLE_DB_WAREHOUSE_ETL&quot;;"
+      DTS:ConfigurationType="7"
+      DTS:CreationName=""
+      DTS:DTSID="{54A3E79E-9A3A-4DEC-8BE0-101440DE78DE}"
+      DTS:ObjectName="OLE_DB_WAREHOUSE_ETL" />
+  </DTS:Configurations>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="11"
+      DTS:DTSID="{E926FFC0-6A4E-4F4D-8267-B4A86856CE61}"
+      DTS:ObjectName="EnabledSSISLogging">
+      <DTS:Property
+        DTS:DataType="11"
+        DTS:Name="ParameterValue">-1</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="11"
+      DTS:DTSID="{169377B6-6705-458D-95CF-BF7D808B96D4}"
+      DTS:ObjectName="FrameworkEnabled">
+      <DTS:Property
+        DTS:DataType="11"
+        DTS:Name="ParameterValue">-1</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{E2AFFEEC-280E-4A09-99A6-0B334CC135E2}"
+      DTS:ObjectName="HeartBeatInterval">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">1</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{4F610C95-9921-4EDE-9BE9-5F76756C1633}"
+      DTS:ObjectName="TaskExecutionInstanceID">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E9E48A3F-4ED2-48A9-935B-B02BAEC46137}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="ActionDelete">
+      <DTS:VariableValue
+        DTS:DataType="3">3</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{43259B6A-58F7-46AB-86CD-8808142C4B53}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="ActionInitial">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A27B85C1-AAF4-4532-AF88-01F8C1EC8F8F}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="ActionInsert">
+      <DTS:VariableValue
+        DTS:DataType="3">1</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{521EA742-1320-4916-82C7-D4A0FA1C1438}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="ActionUpdate">
+      <DTS:VariableValue
+        DTS:DataType="3">2</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C4D97920-C962-4B69-A9F9-D7C019C0FD56}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="CDC_STATE">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9B45B4C2-7713-42D6-9466-38E692F22466}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="DeleteRowCount">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A7192457-CCE3-49DA-BF78-78FF1961F6E0}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="ErrorRowCount">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{39F6B42B-DC15-4D17-AAB3-E960C30084F9}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="ExtractRowCount">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F0C59811-269E-4C07-8413-1BAA684DD16A}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="InsertRowCount">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9C3CA0FD-129A-482A-942E-C4A0D8EA2199}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="LastHeartBeat">
+      <DTS:VariableValue
+        DTS:DataType="7">1/20/2021 10:41:00 PM</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{59691B42-5789-49F7-B13A-6F7C4BD3691F}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="OverrideHeartBeat">
+      <DTS:VariableValue
+        DTS:DataType="11">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3BF0DE34-A2B4-45E1-82ED-8794E7816446}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::SystemDate]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SystemDate">
+      <DTS:VariableValue
+        DTS:DataType="7">5/21/2021 1:45:00 PM</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0ACF51BE-F92E-447C-A91B-FA125572F394}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="TaskFailed">
+      <DTS:VariableValue
+        DTS:DataType="11">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{56A359CB-FD6E-4355-832E-EF5108F95FF3}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="UpdateRowCount">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:LoggingOptions
+    DTS:FilterKind="0"
+    DTS:LoggingMode="2">
+    <DTS:Property
+      DTS:DataType="8"
+      DTS:Name="EventFilter">5,7,OnError,13,OnPostExecute,12,OnPreExecute,10,OnProgress,22,OnVariableValueChanged</DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnError"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnPostExecute"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnPreExecute"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnProgress"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnTaskFailed"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnVariableValueChanged"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+  </DTS:LoggingOptions>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\EXTRACT INITIAL"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{6935534E-B7A2-412C-90E5-913B4A894B31}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="EXTRACT INITIAL">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general"
+          DTS:CreationName="SSIS.Pipeline.3"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{F10DA70C-8255-477C-98AD-9CA7504AF936}"
+          DTS:ExecutableType="SSIS.Pipeline.3"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EXRACT INITIAL cust_general"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\Derived Column"
+                  componentClassID="DTSTransform.DerivedColumn.3"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derived Column"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\Derived Column.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\Derived Column.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\Derived Column.Outputs[Derived Column Output].Columns[TASK_EXECUTION_INSTANCE_ID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\Derived Column.Outputs[Derived Column Output].Columns[TASK_EXECUTION_INSTANCE_ID]"
+                          name="TASK_EXECUTION_INSTANCE_ID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">@[$Package::TaskExecutionInstanceID]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">@[$Package::TaskExecutionInstanceID]</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\Derived Column.Outputs[Derived Column Output].Columns[ACTION_INITIAL]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\Derived Column.Outputs[Derived Column Output].Columns[ACTION_INITIAL]"
+                          name="ACTION_INITIAL"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">@[User::ActionInitial]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">@[User::ActionInitial]</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\Derived Column.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\ROW COUNT EXTRACT"
+                  componentClassID="DTSTransform.RowCount.3"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="ROW COUNT EXTRACT">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::ExtractRowCount</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\ROW COUNT EXTRACT.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\ROW COUNT EXTRACT.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\ROW COUNT EXTRACT.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE"
+                  componentClassID="DTSAdapter.OLEDBSource.3"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="SOURCE"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Connections[OleDbConnection]"
+                      connectionManagerID="{3209C273-AF4B-4F9C-8D08-9C1B1D039227}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[ELI-DB11_WAREHOUSE.DATAMART]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output]"
+                      isSorted="true"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].Columns[ref_id]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].ExternalColumns[ref_id]"
+                          length="30"
+                          lineageId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].Columns[ref_id]"
+                          name="ref_id"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].Columns[is_primary]"
+                          dataType="bool"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].ExternalColumns[is_primary]"
+                          lineageId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].Columns[is_primary]"
+                          name="is_primary"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].Columns[ref_id_customer]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].ExternalColumns[ref_id_customer]"
+                          length="12"
+                          lineageId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].Columns[ref_id_customer]"
+                          name="ref_id_customer"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].Columns[is_merge]"
+                          dataType="bool"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].ExternalColumns[is_merge]"
+                          lineageId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].Columns[is_merge]"
+                          name="is_merge"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].Columns[create_date]"
+                          dataType="dbTimeStamp2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].ExternalColumns[create_date]"
+                          lineageId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].Columns[create_date]"
+                          name="create_date"
+                          scale="7"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].Columns[is_row_status]"
+                          dataType="bool"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].ExternalColumns[is_row_status]"
+                          lineageId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].Columns[is_row_status]"
+                          name="is_row_status"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].Columns[id_customer]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].ExternalColumns[id_customer]"
+                          length="12"
+                          lineageId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].Columns[id_customer]"
+                          name="id_customer"
+                          sortKeyPosition="1"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].ExternalColumns[id_customer]"
+                          codePage="1252"
+                          dataType="str"
+                          length="12"
+                          name="id_customer" />
+                        <externalMetadataColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].ExternalColumns[id_customer_type]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="id_customer_type" />
+                        <externalMetadataColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].ExternalColumns[customer_name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="customer_name" />
+                        <externalMetadataColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].ExternalColumns[short_name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="short_name" />
+                        <externalMetadataColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].ExternalColumns[id_customer_status]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="id_customer_status" />
+                        <externalMetadataColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].ExternalColumns[id_identity_type]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="id_identity_type" />
+                        <externalMetadataColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].ExternalColumns[id_card_no]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="id_card_no" />
+                        <externalMetadataColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].ExternalColumns[date_of_birth]"
+                          dataType="dbDate"
+                          name="date_of_birth" />
+                        <externalMetadataColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].ExternalColumns[place_of_birth]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="place_of_birth" />
+                        <externalMetadataColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].ExternalColumns[id_gender]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="id_gender" />
+                        <externalMetadataColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].ExternalColumns[id_education]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="id_education" />
+                        <externalMetadataColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].ExternalColumns[id_marital_status]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="id_marital_status" />
+                        <externalMetadataColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].ExternalColumns[id_religion]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="id_religion" />
+                        <externalMetadataColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].ExternalColumns[id_nationality]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="id_nationality" />
+                        <externalMetadataColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].ExternalColumns[occupation]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="occupation" />
+                        <externalMetadataColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].ExternalColumns[company_name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="company_name" />
+                        <externalMetadataColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].ExternalColumns[job_title]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="job_title" />
+                        <externalMetadataColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].ExternalColumns[occupied_since]"
+                          dataType="i4"
+                          name="occupied_since" />
+                        <externalMetadataColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].ExternalColumns[job_area]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="job_area" />
+                        <externalMetadataColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].ExternalColumns[npwp_number]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="npwp_number" />
+                        <externalMetadataColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].ExternalColumns[npwp_name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="npwp_name" />
+                        <externalMetadataColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].ExternalColumns[npwp_date]"
+                          dataType="dbDate"
+                          name="npwp_date" />
+                        <externalMetadataColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].ExternalColumns[npwp_address]"
+                          codePage="1252"
+                          dataType="str"
+                          length="300"
+                          name="npwp_address" />
+                        <externalMetadataColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].ExternalColumns[hobby]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="hobby" />
+                        <externalMetadataColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].ExternalColumns[remarks]"
+                          codePage="1252"
+                          dataType="str"
+                          length="300"
+                          name="remarks" />
+                        <externalMetadataColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].ExternalColumns[ref_id]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="ref_id" />
+                        <externalMetadataColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].ExternalColumns[ref_mod_date]"
+                          dataType="dbTimeStamp2"
+                          name="ref_mod_date"
+                          scale="7" />
+                        <externalMetadataColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].ExternalColumns[id_ref_source]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="id_ref_source" />
+                        <externalMetadataColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].ExternalColumns[is_primary]"
+                          dataType="bool"
+                          name="is_primary" />
+                        <externalMetadataColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].ExternalColumns[ref_id_customer]"
+                          codePage="1252"
+                          dataType="str"
+                          length="12"
+                          name="ref_id_customer" />
+                        <externalMetadataColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].ExternalColumns[is_merge]"
+                          dataType="bool"
+                          name="is_merge" />
+                        <externalMetadataColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].ExternalColumns[create_user]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="create_user" />
+                        <externalMetadataColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].ExternalColumns[create_date]"
+                          dataType="dbTimeStamp2"
+                          name="create_date"
+                          scale="7" />
+                        <externalMetadataColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].ExternalColumns[last_mod_user]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="last_mod_user" />
+                        <externalMetadataColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].ExternalColumns[last_mod_date]"
+                          dataType="dbTimeStamp2"
+                          name="last_mod_date"
+                          scale="7" />
+                        <externalMetadataColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].ExternalColumns[last_sync_date]"
+                          dataType="dbTimeStamp2"
+                          name="last_sync_date"
+                          scale="7" />
+                        <externalMetadataColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].ExternalColumns[is_row_status]"
+                          dataType="bool"
+                          name="is_row_status" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                        <outputColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Error Output].Columns[ref_id]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          lineageId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Error Output].Columns[ref_id]"
+                          name="ref_id" />
+                        <outputColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Error Output].Columns[is_primary]"
+                          dataType="bool"
+                          lineageId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Error Output].Columns[is_primary]"
+                          name="is_primary" />
+                        <outputColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Error Output].Columns[ref_id_customer]"
+                          codePage="1252"
+                          dataType="str"
+                          length="12"
+                          lineageId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Error Output].Columns[ref_id_customer]"
+                          name="ref_id_customer" />
+                        <outputColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Error Output].Columns[is_merge]"
+                          dataType="bool"
+                          lineageId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Error Output].Columns[is_merge]"
+                          name="is_merge" />
+                        <outputColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Error Output].Columns[create_date]"
+                          dataType="dbTimeStamp2"
+                          lineageId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Error Output].Columns[create_date]"
+                          name="create_date"
+                          scale="7" />
+                        <outputColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Error Output].Columns[is_row_status]"
+                          dataType="bool"
+                          lineageId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Error Output].Columns[is_row_status]"
+                          name="is_row_status" />
+                        <outputColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Error Output].Columns[id_customer]"
+                          codePage="1252"
+                          dataType="str"
+                          length="12"
+                          lineageId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Error Output].Columns[id_customer]"
+                          name="id_customer" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\STAGING"
+                  componentClassID="DTSAdapter.OLEDBDestination.3"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="STAGING"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbcif].[cust_general]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">CHECK_CONSTRAINTS,ROWS_PER_BATCH = 10000</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\STAGING.Connections[OleDbConnection]"
+                      connectionManagerID="{812A6958-4F81-4E20-9325-5FECDE740470}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[OLE_DB_STAGING]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\STAGING.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\STAGING.Inputs[OLE DB Destination Input].Columns[TASK_EXECUTION_INSTANCE_ID]"
+                          cachedDataType="i4"
+                          cachedName="TASK_EXECUTION_INSTANCE_ID"
+                          externalMetadataColumnId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\STAGING.Inputs[OLE DB Destination Input].ExternalColumns[TASK_EXECUTION_INSTANCE_ID]"
+                          lineageId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\Derived Column.Outputs[Derived Column Output].Columns[TASK_EXECUTION_INSTANCE_ID]" />
+                        <inputColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\STAGING.Inputs[OLE DB Destination Input].Columns[ACTION_INITIAL]"
+                          cachedDataType="i4"
+                          cachedName="ACTION_INITIAL"
+                          externalMetadataColumnId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\STAGING.Inputs[OLE DB Destination Input].ExternalColumns[ACTION]"
+                          lineageId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\Derived Column.Outputs[Derived Column Output].Columns[ACTION_INITIAL]" />
+                        <inputColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\STAGING.Inputs[OLE DB Destination Input].Columns[ref_id]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="ref_id"
+                          externalMetadataColumnId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\STAGING.Inputs[OLE DB Destination Input].ExternalColumns[REF_ID]"
+                          lineageId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].Columns[ref_id]" />
+                        <inputColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\STAGING.Inputs[OLE DB Destination Input].Columns[is_primary]"
+                          cachedDataType="bool"
+                          cachedName="is_primary"
+                          externalMetadataColumnId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\STAGING.Inputs[OLE DB Destination Input].ExternalColumns[IS_PRIMARY]"
+                          lineageId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].Columns[is_primary]" />
+                        <inputColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\STAGING.Inputs[OLE DB Destination Input].Columns[ref_id_customer]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="12"
+                          cachedName="ref_id_customer"
+                          externalMetadataColumnId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\STAGING.Inputs[OLE DB Destination Input].ExternalColumns[REF_ID_CUSTOMER]"
+                          lineageId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].Columns[ref_id_customer]" />
+                        <inputColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\STAGING.Inputs[OLE DB Destination Input].Columns[is_merge]"
+                          cachedDataType="bool"
+                          cachedName="is_merge"
+                          externalMetadataColumnId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\STAGING.Inputs[OLE DB Destination Input].ExternalColumns[IS_MERGE]"
+                          lineageId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].Columns[is_merge]" />
+                        <inputColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\STAGING.Inputs[OLE DB Destination Input].Columns[create_date]"
+                          cachedDataType="dbTimeStamp2"
+                          cachedName="create_date"
+                          cachedScale="7"
+                          externalMetadataColumnId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\STAGING.Inputs[OLE DB Destination Input].ExternalColumns[CREATE_DATE]"
+                          lineageId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].Columns[create_date]" />
+                        <inputColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\STAGING.Inputs[OLE DB Destination Input].Columns[is_row_status]"
+                          cachedDataType="bool"
+                          cachedName="is_row_status"
+                          externalMetadataColumnId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\STAGING.Inputs[OLE DB Destination Input].ExternalColumns[IS_ROW_STATUS]"
+                          lineageId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].Columns[is_row_status]" />
+                        <inputColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\STAGING.Inputs[OLE DB Destination Input].Columns[id_customer]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="12"
+                          cachedName="id_customer"
+                          cachedSortKeyPosition="1"
+                          externalMetadataColumnId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\STAGING.Inputs[OLE DB Destination Input].ExternalColumns[ID_CUSTOMER]"
+                          lineageId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output].Columns[id_customer]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\STAGING.Inputs[OLE DB Destination Input].ExternalColumns[ACTION]"
+                          dataType="i4"
+                          name="ACTION" />
+                        <externalMetadataColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\STAGING.Inputs[OLE DB Destination Input].ExternalColumns[CAPTURED_DATE]"
+                          dataType="dbTimeStamp2"
+                          name="CAPTURED_DATE"
+                          scale="7" />
+                        <externalMetadataColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\STAGING.Inputs[OLE DB Destination Input].ExternalColumns[TASK_EXECUTION_INSTANCE_ID]"
+                          dataType="i4"
+                          name="TASK_EXECUTION_INSTANCE_ID" />
+                        <externalMetadataColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\STAGING.Inputs[OLE DB Destination Input].ExternalColumns[IS_DELETED]"
+                          dataType="bool"
+                          name="IS_DELETED" />
+                        <externalMetadataColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\STAGING.Inputs[OLE DB Destination Input].ExternalColumns[CUST_GENERAL_ID]"
+                          dataType="i8"
+                          name="CUST_GENERAL_ID" />
+                        <externalMetadataColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\STAGING.Inputs[OLE DB Destination Input].ExternalColumns[ID_CUSTOMER]"
+                          codePage="1252"
+                          dataType="str"
+                          length="12"
+                          name="ID_CUSTOMER" />
+                        <externalMetadataColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\STAGING.Inputs[OLE DB Destination Input].ExternalColumns[REF_ID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="REF_ID" />
+                        <externalMetadataColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\STAGING.Inputs[OLE DB Destination Input].ExternalColumns[IS_PRIMARY]"
+                          dataType="bool"
+                          name="IS_PRIMARY" />
+                        <externalMetadataColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\STAGING.Inputs[OLE DB Destination Input].ExternalColumns[REF_ID_CUSTOMER]"
+                          codePage="1252"
+                          dataType="str"
+                          length="12"
+                          name="REF_ID_CUSTOMER" />
+                        <externalMetadataColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\STAGING.Inputs[OLE DB Destination Input].ExternalColumns[IS_MERGE]"
+                          dataType="bool"
+                          name="IS_MERGE" />
+                        <externalMetadataColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\STAGING.Inputs[OLE DB Destination Input].ExternalColumns[CREATE_DATE]"
+                          dataType="dbTimeStamp2"
+                          name="CREATE_DATE"
+                          scale="7" />
+                        <externalMetadataColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\STAGING.Inputs[OLE DB Destination Input].ExternalColumns[IS_ROW_STATUS]"
+                          dataType="bool"
+                          name="IS_ROW_STATUS" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\STAGING.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\STAGING.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\STAGING.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\STAGING.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\STAGING.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\STAGING.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general.Paths[Derived Column Output]"
+                  endId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\ROW COUNT EXTRACT.Inputs[Row Count Input 1]"
+                  name="Derived Column Output"
+                  startId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\Derived Column.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general.Paths[OLE DB Source Output]"
+                  endId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\Derived Column.Inputs[Derived Column Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general.Paths[Row Count Output 1]"
+                  endId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\STAGING.Inputs[OLE DB Destination Input]"
+                  name="Row Count Output 1"
+                  startId="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\ROW COUNT EXTRACT.Outputs[Row Count Output 1]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\EXTRACT INITIAL\TRUNCATE STAGING TABLE"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{132A391B-2FDB-40C7-BBF3-2C87BB08C4E4}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TRUNCATE STAGING TABLE"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{812A6958-4F81-4E20-9325-5FECDE740470}"
+              SQLTask:SqlStatementSource="EXEC [dbo].[PROC_TRUNCATE_RAW_DBCIF_CUST_GENERAL]&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\EXTRACT INITIAL.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{9C72177F-1345-4D59-829C-7584342B46E4}"
+          DTS:From="Package\EXTRACT INITIAL\TRUNCATE STAGING TABLE"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnPostExecute]"
+      DTS:CreationName="OnPostExecute"
+      DTS:DTSID="{FE4A5DE2-8CD6-4290-A24E-BCF252519BDE}"
+      DTS:EventID="-3"
+      DTS:EventName="OnPostExecute"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{82A37507-C4B2-4057-A2B5-8CDD2786E129}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnPostExecute]\SCRIPT - PLACEHOLDER"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ScriptTask.ScriptTask, Microsoft.SqlServer.ScriptTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Script Task"
+          DTS:DTSID="{66F04BD9-20F3-4A72-951E-23E02293CF4A}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ScriptTask.ScriptTask, Microsoft.SqlServer.ScriptTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SCRIPT - PLACEHOLDER">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ScriptProject
+              Name="ST_7e9a97eac5244bb0ab205962417e1226"
+              VSTAMajorVersion="3"
+              VSTAMinorVersion="0"
+              Language="VisualBasic" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnPostExecute]\SQL - LOG ROWS"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{749DA40B-201C-4452-AFB7-BD602C9F3DF1}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL - LOG ROWS"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{1A7BDA60-393F-44AB-B4AA-CD0E807D7DDF}"
+              SQLTask:SqlStatementSource="EXEC log.PROC_SET_LOG_TASK_ROW_COUNT ?, ?, ?, ?, ?, ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="$Package::TaskExecutionInstanceID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="User::ExtractRowCount"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::InsertRowCount"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::UpdateRowCount"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="User::DeleteRowCount"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::ErrorRowCount"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package.EventHandlers[OnPostExecute].PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{F9CFEE2D-CFD8-4014-A94E-07FE616D0544}"
+          DTS:EvalOp="1"
+          DTS:Expression="@[$Package::FrameworkEnabled] == true &amp;&amp;  @[$Package::TaskExecutionInstanceID] != 0"
+          DTS:From="Package.EventHandlers[OnPostExecute]\SCRIPT - PLACEHOLDER"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package.EventHandlers[OnPostExecute]\SQL - LOG ROWS" />
+      </DTS:PrecedenceConstraints>
+    </DTS:EventHandler>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnPreExecute]"
+      DTS:CreationName="OnPreExecute"
+      DTS:DTSID="{70D4B5BE-90D3-46E0-BE52-CE28B9A695B6}"
+      DTS:EventID="6815860"
+      DTS:EventName="OnPreExecute"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{3FCEC715-F659-4604-9B6D-53D9F3A9553A}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnPreExecute]\FX - SET LAST HEART BEAT"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExpressionTask.ExpressionTask, Microsoft.SqlServer.ExpressionTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Expression Task"
+          DTS:DTSID="{F0B26585-F0AC-4328-A72C-D3E9D03BA458}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExpressionTask.ExpressionTask, Microsoft.SqlServer.ExpressionTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="FX - SET LAST HEART BEAT"
+          DTS:TaskContact="Expression Task;Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExpressionTask
+              Expression="@[User::LastHeartBeat] =  @[System::StartTime]" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnPreExecute]\SCRIPT - PLACEHOLDER"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ScriptTask.ScriptTask, Microsoft.SqlServer.ScriptTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Script Task"
+          DTS:DTSID="{1DCC53DC-FC9E-4137-9F8E-A2C7FCBA27C1}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ScriptTask.ScriptTask, Microsoft.SqlServer.ScriptTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SCRIPT - PLACEHOLDER">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ScriptProject
+              Name="ST_e04cc549b8cd4f90ae070ec6beed42db"
+              VSTAMajorVersion="3"
+              VSTAMinorVersion="0"
+              Language="VisualBasic" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnPreExecute]\SQL - INITIALIZE"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{5FDDE9E6-EB93-4122-B59A-6714B2E5A0AC}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL - INITIALIZE"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{1A7BDA60-393F-44AB-B4AA-CD0E807D7DDF}"
+              SQLTask:SqlStatementSource="dbo.PROC_SET_PACKAGE_EXECUTION_ID ?, ?, ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="$Package::TaskExecutionInstanceID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="System::ExecutionInstanceGUID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="50" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="System::PackageID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="50" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package.EventHandlers[OnPreExecute].PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{BF95D201-436C-4834-B2FD-A41DE0014391}"
+          DTS:EvalOp="1"
+          DTS:Expression="@[$Package::FrameworkEnabled] == true &amp;&amp;  @[$Package::TaskExecutionInstanceID] != 0"
+          DTS:From="Package.EventHandlers[OnPreExecute]\SCRIPT - PLACEHOLDER"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package.EventHandlers[OnPreExecute]\SQL - INITIALIZE" />
+      </DTS:PrecedenceConstraints>
+    </DTS:EventHandler>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnProgress]"
+      DTS:CreationName="OnProgress"
+      DTS:DTSID="{F3E055A7-3B85-4C61-A861-19F3A12BFA31}"
+      DTS:EventID="0"
+      DTS:EventName="OnProgress"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{046CB56C-BF4C-496D-B747-2F888E5A436D}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnProgress]\SCRIPT - PLACEHOLDER"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ScriptTask.ScriptTask, Microsoft.SqlServer.ScriptTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Script Task"
+          DTS:DTSID="{F8967F9C-DFC6-450B-BD2D-973C4EA792E9}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ScriptTask.ScriptTask, Microsoft.SqlServer.ScriptTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SCRIPT - PLACEHOLDER">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ScriptProject
+              Name="ST_7b58c0b14f3343d499d03cb68eb4ce71"
+              VSTAMajorVersion="3"
+              VSTAMinorVersion="0"
+              Language="VisualBasic" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnProgress]\SQL - LOG PROGRESS"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{E1397E02-60AB-45D9-AB5D-68DC0811FEAD}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL - LOG PROGRESS"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{1A7BDA60-393F-44AB-B4AA-CD0E807D7DDF}"
+              SQLTask:SqlStatementSource="EXEC dbo.PROC_SET_TASK_EXECUTION_INSTANCE_HEART_BEAT ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="$Package::TaskExecutionInstanceID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package.EventHandlers[OnProgress].PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{566D93D6-FF2B-4A9E-BACD-E8D2D479D4FD}"
+          DTS:EvalOp="1"
+          DTS:Expression="@[$Package::FrameworkEnabled] == true &amp;&amp;  @[$Package::TaskExecutionInstanceID] != 0 &amp;&amp;  @[User::OverrideHeartBeat] == false"
+          DTS:From="Package.EventHandlers[OnProgress]\SCRIPT - PLACEHOLDER"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package.EventHandlers[OnProgress]\SQL - LOG PROGRESS" />
+      </DTS:PrecedenceConstraints>
+    </DTS:EventHandler>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnVariableValueChanged]"
+      DTS:CreationName="OnVariableValueChanged"
+      DTS:DTSID="{3215189B-3C39-4C4E-841E-C74E7A1F4824}"
+      DTS:EventID="0"
+      DTS:EventName="OnVariableValueChanged"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{DD2F7BB8-A2D5-473D-869A-E41C384D7261}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnVariableValueChanged]\SCRIPT - PLACEHOLDER"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ScriptTask.ScriptTask, Microsoft.SqlServer.ScriptTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Script Task"
+          DTS:DTSID="{2947B865-FB09-4DC6-993E-0DE73B98E37C}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ScriptTask.ScriptTask, Microsoft.SqlServer.ScriptTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SCRIPT - PLACEHOLDER">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ScriptProject
+              Name="ST_20a46338fc594ef49e23a749e75ccc8c"
+              VSTAMajorVersion="3"
+              VSTAMinorVersion="0"
+              Language="VisualBasic" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnVariableValueChanged]\SQL - LOG VARIABLE CHANGE"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{F8F5D489-979B-4B71-A95D-98B1FCB72949}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL - LOG VARIABLE CHANGE"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{1A7BDA60-393F-44AB-B4AA-CD0E807D7DDF}"
+              SQLTask:SqlStatementSource="log.PROC_SET_TASK_VARIABLE_CHANGE ?, ?, ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="$Package::TaskExecutionInstanceID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="System::VariableName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="500" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="System::VariableValue"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="500" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package.EventHandlers[OnVariableValueChanged].PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{373A22D2-D5ED-4974-9D19-AE30A81B3101}"
+          DTS:EvalOp="1"
+          DTS:Expression="@[$Package::FrameworkEnabled] == true &amp;&amp;  @[$Package::TaskExecutionInstanceID] != 0"
+          DTS:From="Package.EventHandlers[OnVariableValueChanged]\SCRIPT - PLACEHOLDER"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package.EventHandlers[OnVariableValueChanged]\SQL - LOG VARIABLE CHANGE" />
+      </DTS:PrecedenceConstraints>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib">
+        <NodeLayout
+          Size="204.666666666667,41.3333333333334"
+          Id="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general"
+          TopLeft="18.5,107.5" />
+        <NodeLayout
+          Size="228.666666666667,41.3333333333334"
+          Id="Package\EXTRACT INITIAL\TRUNCATE STAGING TABLE"
+          TopLeft="5.50000000000001,5.5" />
+        <EdgeLayout
+          Id="Package\EXTRACT INITIAL.PrecedenceConstraints[Constraint]"
+          TopLeft="120.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="240,205.333333333334"
+          Size="240,248"
+          Id="Package\EXTRACT INITIAL"
+          TopLeft="10.5,16.5" />
+        <AnnotationLayout
+          Text="RAW INITIAL - DBCIF - cust_general"
+          ParentId="d1db0995-8801-458e-b156-82b6136dad6a"
+          FontInfo="{assembly:Null}"
+          Size="303.333333333334,40"
+          Id="56d447cd-022a-4be2-a64c-0c0fcc03f2f5"
+          TopLeft="5.5,52" />
+        <AnnotationLayout
+          Text="Step 1:&#xA;Extract Initial data dari SOURCE ke STAGING&#xA;CWMPOLDET_stage&#xA;&#xA;Step 2:&#xA;Load Initial data dari STAGING CWMPOLDET_stage&#xA;ke STAGING cust_general"
+          ParentId="d1db0995-8801-458e-b156-82b6136dad6a"
+          FontInfo="{assembly:Null}"
+          Size="264,152"
+          Id="a836bf5a-5f2d-4bee-9ad3-3a90a05ec8b6"
+          TopLeft="324.5,5.49999999999989" />
+        <AnnotationLayout
+          Text="Created Date: 2022-08-29&#xA;Created By: Iman Subarkah&#xA;Changed Date: 2022-09-05&#xA;Changed By: Iman Subarkah"
+          ParentId="d1db0995-8801-458e-b156-82b6136dad6a"
+          FontInfo="{assembly:Null}"
+          Size="176.666666666667,88"
+          Id="00695ce5-4c55-4035-a397-2dd5d9689050"
+          TopLeft="649,29.4999999999999" />
+        <GroupLayout
+          Text="Package Info"
+          ParentId="Package"
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="832,213.333333333334"
+          Size="832,256"
+          Id="d1db0995-8801-458e-b156-82b6136dad6a"
+          TopLeft="283.5,16.9999999999999">
+          <GroupLayout.ChildrenIds>
+            <s:String>56d447cd-022a-4be2-a64c-0c0fcc03f2f5</s:String>
+            <s:String>a836bf5a-5f2d-4bee-9ad3-3a90a05ec8b6</s:String>
+            <s:String>00695ce5-4c55-4035-a397-2dd5d9689050</s:String>
+          </GroupLayout.ChildrenIds>
+        </GroupLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnPostExecute]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="211,42"
+          Id="Package.EventHandlers[OnPostExecute]\SCRIPT - PLACEHOLDER"
+          TopLeft="385,77" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package.EventHandlers[OnPostExecute]\SQL - LOG ROWS"
+          TopLeft="409,170" />
+        <EdgeLayout
+          Id="Package.EventHandlers[OnPostExecute].PrecedenceConstraints[Constraint]"
+          TopLeft="492.5,119">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51"
+              Start="0,0"
+              End="0,43.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,13.75,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnPreExecute]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="226,42"
+          Id="Package.EventHandlers[OnPreExecute]\FX - SET LAST HEART BEAT"
+          TopLeft="245,216" />
+        <NodeLayout
+          Size="211,42"
+          Id="Package.EventHandlers[OnPreExecute]\SCRIPT - PLACEHOLDER"
+          TopLeft="482,98" />
+        <NodeLayout
+          Size="165,42"
+          Id="Package.EventHandlers[OnPreExecute]\SQL - INITIALIZE"
+          TopLeft="510.5,215.5" />
+        <EdgeLayout
+          Id="Package.EventHandlers[OnPreExecute].PrecedenceConstraints[Constraint]"
+          TopLeft="590.25,140">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,75.5"
+              Start="0,0"
+              End="0,68">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,68" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,26,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnProgress]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="211,42"
+          Id="Package.EventHandlers[OnProgress]\SCRIPT - PLACEHOLDER"
+          TopLeft="472,118" />
+        <NodeLayout
+          Size="199,42"
+          Id="Package.EventHandlers[OnProgress]\SQL - LOG PROGRESS"
+          TopLeft="480.5,238.5" />
+        <EdgeLayout
+          Id="Package.EventHandlers[OnProgress].PrecedenceConstraints[Constraint]"
+          TopLeft="578.75,160">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,78.5"
+              Start="0,0"
+              End="0,71">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,71" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,27.5,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnVariableValueChanged]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="211,42"
+          Id="Package.EventHandlers[OnVariableValueChanged]\SCRIPT - PLACEHOLDER"
+          TopLeft="362.5,108" />
+        <NodeLayout
+          Size="240,42"
+          Id="Package.EventHandlers[OnVariableValueChanged]\SQL - LOG VARIABLE CHANGE"
+          TopLeft="350,229.5" />
+        <EdgeLayout
+          Id="Package.EventHandlers[OnVariableValueChanged].PrecedenceConstraints[Constraint]"
+          TopLeft="469,150">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,79.5"
+              Start="0,0"
+              End="0,72">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,72" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,28,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="126.666666666667,41.3333333333334"
+          Id="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE"
+          TopLeft="97.4999979138375,12" />
+        <NodeLayout
+          Size="158.666666666667,41.3333333333334"
+          Id="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\Derived Column"
+          TopLeft="79.9999979138375,107.5" />
+        <NodeLayout
+          Size="125.333333333334,41.3333333333334"
+          Id="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\STAGING"
+          TopLeft="99.1666627261375,303.33333574401" />
+        <NodeLayout
+          Size="201.333333333334,41.3333333333334"
+          Id="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\ROW COUNT EXTRACT"
+          TopLeft="57.9999979138376,209.5" />
+        <EdgeLayout
+          Id="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general.Paths[Row Count Output 1]"
+          TopLeft="160.383330319988,251.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52.2333357440102"
+              Start="0,0"
+              End="0,44.7333357440102">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.7333357440102" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general.Paths[OLE DB Source Output]"
+          TopLeft="159.749997913838,54">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,53.5"
+              Start="0,0"
+              End="0,46">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general.Paths[Derived Column Output]"
+          TopLeft="158.999997913838,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\SOURCE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\EXTRACT INITIAL\EXRACT INITIAL cust_general\STAGING">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="OLE_DB_DIGITAL_AJK"
+  DTS:DTSID="{E0673FF6-B246-4F5C-8EEA-F4FDC0CAC072}"
+  DTS:CreationName="OLEDB">
+  <DTS:PropertyExpression
+    DTS:Name="InitialCatalog">@[$Project::DatabaseNameDigitalAJK]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="ServerName">@[$Project::ServerNameDigitalAJK]</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=PC803\WAREHOUSE2;Initial Catalog=AJK;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-{E0673FF6-B246-4F5C-8EEA-F4FDC0CAC072}OLE_DB_DIGITAL_AJK;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="OLE_DB_STAGING"
+  DTS:DTSID="{812A6958-4F81-4E20-9325-5FECDE740470}"
+  DTS:CreationName="OLEDB">
+  <DTS:PropertyExpression
+    DTS:Name="InitialCatalog">@[$Project::DatabaseNameSTAGING]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="ServerName">@[$Project::ServerNameSTAGING]</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=PC803\WAREHOUSE2;Initial Catalog=STAGING;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-{812A6958-4F81-4E20-9325-5FECDE740470}OLE_DB_STAGING;MARS Connection=False;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

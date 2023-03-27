@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="ADO_NET_DIGITAL_AJK"
+  DTS:DTSID="{2153208D-DDD8-44CB-87EE-6A91BA464EAE}"
+  DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <DTS:PropertyExpression
+    DTS:Name="InitialCatalog">@[$Project::DatabaseNameDigitalAJK]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="ServerName">@[$Project::ServerNameDigitalAJK]</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=PC803\WAREHOUSE2;Initial Catalog=AJK;Integrated Security=True;Application Name=SSIS-RAW_INITIAL_AJK_peserta-{2153208D-DDD8-44CB-87EE-6A91BA464EAE}ADO_NET_DIGITAL_AJK;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="OLE_DB_DIGITAL_IND"
+  DTS:DTSID="{CC88F73D-211C-4B80-BB1C-4D449532641E}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=PC803\WAREHOUSE2;Initial Catalog=EQLIFE;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-{CC88F73D-211C-4B80-BB1C-4D449532641E}OLE_DB_DIGITAL_IND;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

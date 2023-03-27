@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="ADO_NET_DIGITAL_IND"
+  DTS:DTSID="{FB1ECA57-031A-4F34-9568-075ED9E1846C}"
+  DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=PC803\WAREHOUSE2;Initial Catalog=STAGING;Integrated Security=True;Application Name=SSIS-etl-warehouse-{FB1ECA57-031A-4F34-9568-075ED9E1846C}PC803\DIGITAL.EQLIFE;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="ELI-DB11_WAREHOUSE.DATAMART"
+  DTS:DTSID="{3209C273-AF4B-4F9C-8D08-9C1B1D039227}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=SIT-IN04\DIGITAL;Initial Catalog=dbCIF;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-etl-datamart-{3209C273-AF4B-4F9C-8D08-9C1B1D039227}ELI-DB11\WAREHOUSE.DATAMART;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

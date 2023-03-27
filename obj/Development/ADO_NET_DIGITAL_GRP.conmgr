@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="ADO_NET_DIGITAL_GRP"
+  DTS:DTSID="{5DED8328-8AD1-4717-B514-F6641E0C4D62}"
+  DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=SIT-IN04\DIGITAL;Initial Catalog=GrpInsurance;Integrated Security=True;Application Name=SSIS-etl-warehouse-{5DED8328-8AD1-4717-B514-F6641E0C4D62}PC803\DIGITAL.GrpInsurance;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

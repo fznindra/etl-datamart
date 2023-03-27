@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="ADO_NET_STAGING"
+  DTS:DTSID="{D7C38C62-F9E7-4421-BA57-9BACD5AB2391}"
+  DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <DTS:PropertyExpression
+    DTS:Name="InitialCatalog">@[$Project::DatabaseNameSTAGING]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="ServerName">@[$Project::ServerNameSTAGING]</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=PC803\WAREHOUSE2;Initial Catalog=STAGING;Integrated Security=True;Application Name=SSIS-etl-warehouse-{D7C38C62-F9E7-4421-BA57-9BACD5AB2391}PC803\WAREHOUSE.STAGING;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
